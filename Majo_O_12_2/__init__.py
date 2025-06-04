@@ -263,8 +263,7 @@ class Campaigning(Page):
         
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if timeout_happened:
-            player.is_dropout = True
+        pass
 class WaitingForCandidates(WaitPage):
     body_text = 'Die Wahlprogamme werden erstellt.'
     @staticmethod
@@ -352,9 +351,7 @@ class Voting(Page):
         )    
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        if timeout_happened:
-            player.is_dropout = True
-            player.vote_for = "abstain"
+        pass
 class WaitingForVoters(WaitPage):
     after_all_players_arrive = determine_winner_and_payoffs
     body_text = 'Die Wählerinnen und Wähler geben ihre Stimme ab.'
@@ -388,7 +385,7 @@ class Outcome(Page):
         votes_for_abstain = 0
         votes_for_A = votes.count("A")
         votes_for_B = votes.count("B")
-        votes_for_abstain = votes.count("abstain")
+        votes_for_abstain = 12 - votes_for_A - votes_for_B 
         budget_A = 7.2   
         budget_B = 7.2    
         
