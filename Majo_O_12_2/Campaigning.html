@@ -1,0 +1,154 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Wahlprogramm erstellen: Partei {{ player.role }}{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+<p>Entscheiden Sie, welche Wählenden Ihre Partei in ihr Wahlprogramm aufnimmt und welche nicht. Den berücksichtigten Wählenden wird dann der gleiche Anteil des Regierungsbudgets ({{C.BUDGET}}) angeboten und im Falle eines Wahlsiegs Ihrer Partei ausgezahlt.</p>
+
+<div class="accordion mt-3" id="accordionAdditionalInfo">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="accordionHeader">
+            <button class="accordion-button btn btn-outline-secondary collapsed no-focus-outline" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdditionalInfo" aria-expanded="false" aria-controls="collapseAdditionalInfo">
+               Anzahl berücksichtigter Wählender und angebotener Betrag je berücksichtigtem Wählenden
+            </button>
+        </h2>
+        <div id="collapseAdditionalInfo" class="accordion-collapse collapse" aria-labelledby="accordionHeader" data-bs-parent="#accordionAdditionalInfo">
+            <div class="accordion-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td style="padding: 5px;">Anzahl berücksichtigter Wählender</td>
+                                <td style="padding: 5px;">1</td>
+                                <td style="padding: 5px;">2</td>
+                                <td style="padding: 5px;">3</td>
+                                <td style="padding: 5px;">4</td>
+                                <td style="padding: 5px;">5</td>
+                                <td style="padding: 5px;">6</td>
+                                <td style="padding: 5px;">7</td>
+                                <td style="padding: 5px;">8</td>
+                                <td style="padding: 5px;">9</td>
+                                <td style="padding: 5px;">10</td>
+                                <td style="padding: 5px;">11</td>
+                                <td style="padding: 5px;">12</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px;">Betrag je berücksichtigtem Wählenden</td>
+                                <td style="padding: 5px;">{{ budget1 }}</td>
+                                <td style="padding: 5px;">{{ budget2 }}</td>
+                                <td style="padding: 5px;">{{ budget3 }}</td>
+                                <td style="padding: 5px;">{{ budget4 }}</td>
+                                <td style="padding: 5px;">{{ budget5 }}</td>
+                                <td style="padding: 5px;">{{ budget6 }}</td>
+                                <td style="padding: 5px;">{{ budget7 }}</td>
+                                <td style="padding: 5px;">{{ budget8 }}</td>
+                                <td style="padding: 5px;">{{ budget9 }}</td>
+                                <td style="padding: 5px;">{{ budget10 }}</td>
+                                <td style="padding: 5px;">{{ budget11 }}</td>
+                                <td style="padding: 5px;">{{ budget12 }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>In der folgenden Liste kreuzen Sie 'Ja' an, um die Wählenden zu markieren, die Ihre Partei in ihr Wahlprogramm aufnehmen möchte, und 'Nein' für diejenigen, die nicht berücksichtigt werden sollen.</p>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+        <th>Wähler/Wählerin</th>
+        <th>Vermögen</th>
+        <th>Im Wahlprogramm berücksichtigen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="align-middle">
+        <td><b>1</b></td>
+        <td>{{ voter_1.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v01' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>2</b></td>
+        <td>{{ voter_2.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v02' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>3</b></td>
+        <td>{{ voter_3.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v03' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>4</b></td>
+        <td>{{ voter_4.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v04' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>5</b></td>
+        <td>{{ voter_5.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v05' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>6</b></td>
+        <td>{{ voter_6.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v06' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>7</b></td>
+        <td>{{ voter_7.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v07' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>8</b></td>
+        <td>{{ voter_8.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v08' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>9</b></td>
+        <td>{{ voter_9.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v09' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>10</b></td>
+        <td>{{ voter_10.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v10' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>11</b></td>
+        <td>{{ voter_11.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v11' label="" }}</td>
+    </tr>
+    <tr class="align-middle">
+        <td><b>12</b></td>
+        <td>{{ voter_12.accumulated_wealth }} Euro</td>
+        <td>{{ formfield 'v12' label="" }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nachdem die Wahlprogramme beider Parteien veröffentlicht wurden, treffen die Wählenden ihre Wahlentscheidung.</p>
+
+{{ next_button }}
+
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 60) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+{{ endblock }}

@@ -1,0 +1,38 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Anleitung{{ endblock }}
+
+{{ block content }}
+
+<p>In diesem Experiment gibt es:</p>
+<ul>
+    <li>2 Parteien: A und B</li>
+    <li>12 Wählende: 1 bis 12</li>
+    <li>20 Wahlrunden: 1 bis 20</li>
+    <li>Je Wahlrunde ein Regierungsbudget von 7,20 Euro, das gemäß dem Wahlprogramm der siegreichen Partei unter den Wählenden verteilt wird.</li>
+    <li>Einen Bonus von 1,20 € pro Runde für die Gewinnerpartei, bzw. deren Vertreter/Vertreterin.</li>
+</ul>
+
+<h3>Ihre Rolle</h3>
+<p>
+Sie werden zufällig ausgewählt, entweder eine der 2 Parteien zu vertreten oder einer der 12 Wählenden zu sein. Diese Rolle behalten Sie während des gesamten Experiments bei. Wenn Sie beispielsweise als 'Wähler/Wählerin 8' ausgewählt werden, sind Sie dies in allen Runden.
+</p>
+
+<h3>Aufgaben in jeder Wahlrunde</h3>
+<p>
+In jeder Wahlrunde legen die Parteien bzw. deren Vertretende Wahlprogramme fest. Diese Programme werden dann veröffentlicht. Anschließend entscheiden die Wählenden, ob sie für eine der Parteien stimmen oder sich enthalten.
+</p>
+
+<h3>Wahlprogramme und Einnahmen pro Wahlrunde</h3>
+<p>
+Das Wahlprogramm einer Partei besteht aus Angeboten an ausgewählte Wähler, wobei die Höhe der Angebote jeweils dem gleichen Anteil des Regierungsbudgets (7,20 Euro) entspricht. Nur die berücksichtigten Wähler der gewinnenden Partei erhalten die versprochenen Beträge. Wenn beispielsweise Partei A die Wählenden 1, 3, 6 und 12 auswählt und die Wahl gewinnt, erhalten diese 4 Wählenden jeweils 7,20 € / 4 = 1,80 €. Die Partei, die mehr Stimmen erhält gewinnt die Wahl. Bei gleicher Stimmenzahl entscheidet der Zufall. Der Vertreter bzw. die Vertreterin der gewinnenden Partei erhält einen Bonus von 1,20 €.
+</p>
+
+<h3>Gesamteinnahmen</h3>
+<p>
+Ihre Gesamteinnahmen setzen sich aus der Summe aller Rundeneinnahmen und einem Teilnahmebonus von 5 Euro zusammen. Während der Wahlrunden erhalten Sie Updates zu Ihren Einnahmen in der aktuellen Wahlrunde sowie Ihrem angesammelten Vermögen, das die Gesamtsumme aller bisherigen Rundeneinnahmen darstellt. Der Teilnahmebonus wird am Ende des Experiments zu Ihren Gesamteinnahmen hinzugefügt.
+</p>
+
+{{ next_button }}
+
+
+{{ endblock }}

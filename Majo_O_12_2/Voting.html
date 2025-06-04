@@ -1,0 +1,112 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Wählen{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+<p>Beide Parteien haben ihre Wahlprogramme erstellt. Die angebotenen Beträge einer Partei geben an, wie viel die entsprechenden Personen im Falle eines Wahlsiegs dieser Partei erhalten. Die Partei mit den meisten Stimmen gewinnt. Bei gleicher Stimmenzahl wird die Gewinnerpartei zufällig bestimmt. Das Programm der Gewinnerpartei wird umgesetzt.</p>
+
+<table class="table">
+  <tr>
+      <th>Wähler/Wählerin</th>
+      <th>Vermögen (Summe bisheriger Runden-Einkommen</th>
+      <th>Angebot von Partei A</th>
+      <th>Angebot von Partei B</th>
+  </tr>
+  <tr>
+      <td><b>1</b></td>
+      <td>{{voter_1.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v01 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v01 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>
+      <td><b>2</b></td>
+      <td>{{voter_2.accumulated_wealth}}</td>               
+      <td>{{ if candidate_A.v02 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v02 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>
+      <td><b>3</b></td>
+      <td>{{voter_3.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v03 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v03 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>
+      <td><b>4</b></td>
+      <td>{{voter_4.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v04 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v04 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>5</b></td>
+      <td>{{voter_5.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v05 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v05 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>6</b></td>
+      <td>{{voter_6.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v06 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v06 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>7</b></td>
+      <td>{{voter_7.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v07 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v07 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>8</b></td>
+      <td>{{voter_8.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v08 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v08 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>9</b></td>
+      <td>{{voter_9.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v09 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v09 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>10</b></td>
+      <td>{{voter_10.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v10 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v10 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>11</b></td>
+      <td>{{voter_11.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v11 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v11 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+  <tr>  
+      <td><b>12</b></td>
+      <td>{{voter_12.accumulated_wealth}}</td>    
+      <td>{{ if candidate_A.v12 }} {{total_voters_rel_by_A}} {{ else }} €0 {{ endif }}</td>
+      <td>{{ if candidate_B.v12 }} {{total_voters_rel_by_B}} {{ else }} €0 {{ endif }}</td>   
+  </tr>
+</table>
+
+<p><b>Sie sind Wähler/Wählerin {{ player.role }}</b>. Bitte geben Sie Ihre Stimme ab:</p>
+<button name="vote_for" value="A">Ich stimme für A</button>
+<button name="vote_for" value="B">Ich stimme für B</button>
+<button name="vote_for" value="abstain">Ich enthalte mich</button>
+
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 30) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+{{ endblock }}

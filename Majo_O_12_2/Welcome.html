@@ -1,0 +1,18 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Ihre Rolle{{ endblock }}
+
+{{ block content }}
+
+<p>
+   
+{{if player.id_in_group > 2}}
+Sie sind <b>Wähler/Wählerin {{ player.role }}</b> über alle {{C.NUM_ROUNDS}} Wahlrunden.
+{{else}}
+    Sie vertreten <b>Partei {{ player.role }}</b> über alle {{C.NUM_ROUNDS}} Wahlrunden.
+{{endif}}
+</p>   
+
+{{ next_button }}
+
+
+{{ endblock }}

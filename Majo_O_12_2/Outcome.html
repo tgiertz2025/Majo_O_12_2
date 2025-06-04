@@ -1,0 +1,170 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Ergebnis{{ endblock }}
+
+{{ block content }}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+<p>
+Alle Wählenden haben ihre Stimme abgegeben.
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Partei</th>
+            <th scope="col">Erhaltene Stimmen</th>
+            <th>Ergebnis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">A</th>
+            <td>
+                <div class="progress">
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: {{votes_rel_for_A}}%" aria-valuenow="{{votes_rel_for_A}}%" aria-valuemin="0" aria-valuemax="100">{{votes_for_A}}</div>
+                </div>
+            </td>
+            <td>{% if candidate_A.payoff > 0 %} GEWINNER! {% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">B</th>
+            <td>
+                <div class="progress">
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: {{votes_rel_for_B}}%" aria-valuenow="{{votes_rel_for_B}}%" aria-valuemin="0" aria-valuemax="100">{{votes_for_B}}</div>
+                </div>
+            </td>
+            <td>{% if candidate_B.payoff > 0 %} GEWINNER! {% endif %}</td>
+        </tr>
+        <tr>
+            <th scope="row">Enthaltungen</th>
+            <td>{{votes_for_abstain}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="accordion mt-3" id="accordionAdditionalInfo">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="accordionHeader">
+            <button class="accordion-button btn btn-outline-secondary collapsed no-focus-outline" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdditionalInfo" aria-expanded="false" aria-controls="collapseAdditionalInfo">
+                Situation vor der Wahl/ Wahlprogramme
+            </button>
+        </h2>
+        <div id="collapseAdditionalInfo" class="accordion-collapse collapse" aria-labelledby="accordionHeader" data-bs-parent="#accordionAdditionalInfo">
+            <div class="accordion-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Wähler/Wählerin</th>
+                            <th>Vermögen vor der Wahl</th>
+                            <th>Angebot von Partei A</th>
+                            <th>Angebot von Partei B</th>
+                        </tr>
+                        <tr>
+                            <td><b>1</b></td>
+                            <td>{{voter_1_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v01 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v01 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>2</b></td>
+                            <td>{{voter_2_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v02 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v02 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>3</b></td>
+                            <td>{{voter_3_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v03 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v03 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>4</b></td>
+                            <td>{{voter_4_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v04 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v04 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>5</b></td>
+                            <td>{{voter_5_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v05 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v05 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>6</b></td>
+                            <td>{{voter_6_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v06 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v06 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>7</b></td>
+                            <td>{{voter_7_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v07 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v07 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>8</b></td>
+                            <td>{{voter_8_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v08 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v08 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>9</b></td>
+                            <td>{{voter_9_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v09 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v09 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>10</b></td>
+                            <td>{{voter_10_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v10 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v10 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>11</b></td>
+                            <td>{{voter_11_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v11 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v11 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>12</b></td>
+                            <td>{{voter_12_wealth_before_voting}}</td>
+                            <td>{{ if candidate_A.v12 }} €{{budget_A_per_voter}} {{ else }} €0 {{ endif }}</td>
+                            <td>{{ if candidate_B.v12 }} €{{budget_B_per_voter}} {{ else }} €0 {{ endif }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+    Partei {{group.winner}} hat die Wahl gewonnen.{{if votes_rel_for_A == votes_rel_for_B}} Aufgrund von Stimmengleichheit erfolgte dies durch Zufall.{{endif}}     
+    {{if player.id_in_group > 2}}
+    Da Sie Wähler/Wählerin {{ player.role }} sind, hat sich Ihr Vermögen um {{ player.payoff }} erhöht und beträgt nun {{ player.accumulated_wealth }}.
+    {{else}}
+    Da Sie Partei {{ player.role }} vertreten, hat sich Ihr Vermögen um {{ player.payoff }} erhöht und beträgt nun {{ participant.payoff }}.
+    {{endif}}
+</p>
+
+{{ next_button }}
+
+
+{{ endblock }}
+
+{{ block scripts }}
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 30) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+{{ endblock }}
